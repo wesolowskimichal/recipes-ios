@@ -2,6 +2,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native'
 import { NavigationProp } from '@react-navigation/native'
 import { Recipe as IRecipe } from '../../types/Types'
 import { Image } from 'expo-image'
+import { memo } from 'react'
 
 type RecipeProps = {
   recipe: IRecipe
@@ -65,4 +66,5 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Recipe
+// dla lepszej szybkosci
+export default memo(Recipe)
