@@ -4,7 +4,7 @@ import { NavigationProp, RouteProp } from '@react-navigation/native'
 //#region Navigation Types
 export type RootStackParamList = {
   Home: undefined
-  Recipe: { recipe?: Recipe | null }
+  Recipe: { recipe: Recipe }
 }
 
 export type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>

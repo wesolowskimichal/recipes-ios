@@ -5,7 +5,7 @@ import { SafeAreaView, StyleSheet, Text, StatusBar as StatusBarRN, FlatList, Vie
 import { StatusBar } from 'expo-status-bar'
 import Recipe from '../../components/recipe/Recipe'
 
-const Home = ({ navigation, route }: HomeScreenProps) => {
+const Home = ({ navigation, route: _route }: HomeScreenProps) => {
   const [recipes, setRecipes] = useState<IRecipe[]>([])
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
         data={recipes}
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
-            <Recipe recipe={item} />
+            <Recipe recipe={item} navigation={navigation} />
           </View>
         )}
         keyExtractor={item => item.id.toString()}

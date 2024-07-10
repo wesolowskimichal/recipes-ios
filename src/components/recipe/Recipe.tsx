@@ -1,12 +1,14 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { NavigationProp } from '@react-navigation/native'
 import { Recipe as IRecipe } from '../../types/Types'
 import { Image } from 'expo-image'
 
 type RecipeProps = {
   recipe: IRecipe
+  navigation: NavigationProp<any>
 }
 
-const Recipe = ({ recipe }: RecipeProps) => {
+const Recipe = ({ recipe, navigation }: RecipeProps) => {
   const getColor = () => {
     if (recipe.difficulty === 'Easy') {
       return 'green'
@@ -17,7 +19,7 @@ const Recipe = ({ recipe }: RecipeProps) => {
   }
 
   return (
-    <Pressable style={styles.container}>
+    <Pressable style={styles.container} onPress={() => navigation.navigate('Recipe', { recipe: recipe })}>
       <Image source={{ uri: recipe.image }} style={styles.image} />
       <Text style={styles.name}>{recipe.name}</Text>
       <View style={styles.infoWrapper}>

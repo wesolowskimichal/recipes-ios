@@ -24,7 +24,7 @@ export default function App() {
           name="Recipe"
           component={Recipe}
           options={{
-            headerShown: false,
+            headerShown: true,
             presentation: 'modal',
             animationTypeForReplace: 'push',
             animation: 'slide_from_right'
